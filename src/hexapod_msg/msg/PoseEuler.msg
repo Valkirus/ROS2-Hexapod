@@ -1,0 +1,2 @@
+hexapod_msg/EulerAngles euler_angles
+geometry_msgs/Point position
