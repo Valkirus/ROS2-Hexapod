@@ -1,0 +1,46 @@
+global_parameter_server:
+  ros__parameters:
+    robot_description: "$(find-pkg-share robot_description)/urdf/hexapod.xacro"
+    robot_name: "hexapod"
+    num_legs: 6
+    num_leg_joints: 3
+    leg_suffixes: ["R1", "R2", "R3", "L3", "L2", "L1"]
+
+    # link info (The legs on the Chipo/Chica frame is off by about 8 degrees from a perfect hexagon)
+    leg_offset_degree: 8
+
+#joint limits
+    coxa_joint_upper_limit : 90.0
+    coxa_joint_lower_limit : -90.0
+    femur_joint_upper_limit : 90.0
+    femur_joint_lower_limit : -90.0
+    tibia_joint_upper_limit : 90.0
+    tibia_joint_lower_limit : -90.0
+
+# default sitting position (adjust based on your hexapod)
+    L1_sitting_radius: 0.222
+    L2_sitting_radius: 0.202
+    L3_sitting_radius: 0.222
+
+    R1_sitting_radius: 0.222
+    R2_sitting_radius: 0.202
+    R3_sitting_radius: 0.222
+
+    leg_sitting_z: -0.03
+
+# teleop limits (for fine tuning the hexapod)
+    max_lin_velocity : 0.12
+    max_ang_velocity : 0.6
+    max_body_x_euler : 0
+    max_body_y_euler : 0.25
+    max_body_z_euler : 0.2
+    max_body_x : 0.04
+    max_body_y : 0.04
+    max_body_z : 0.1
+    max_body_velocity_z : 0.23
+
+    # gait params
+    workspace_ellipse_axes: [0.15, 0.15, 0.15]
+    workspace_ellipse_origin: [0.107, 0.0, -0.087]
+    transfer_height: 0.043
+    max_obstacle_height: 0.043
